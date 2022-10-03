@@ -28,7 +28,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/certify-main-app
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/verify-main-app
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
