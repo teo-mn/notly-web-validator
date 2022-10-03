@@ -1,0 +1,22 @@
+.partners {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 215, 218, 0.3) 50%, rgba(255, 255, 255, 1) 100%);
+}
+
+.info-box-left {
+  background: rgb(253, 75, 27);
+  background: linear-gradient(164deg, rgba(253, 75, 27, 1) 0%, rgba(212, 171, 80, 1) 100%);
+}
+
+.card-asset::after {
+  content: '"';
+  color: $main-primary-yellow;
+  font-size: 120px;
+  position: absolute;
+  top: -55px;
+}
+
+.connect-btn {
+  width: 187px;
+  height: 82px;
+}

@@ -1,0 +1,20 @@
+.schools-cards{
+
+  .school-card{
+    max-width: 491px;
+    min-height: 186px;
+  }
+
+  .school-card::before{
+    content: '"';
+    color: $main-primary-yellow;
+    font-size: 56px;
+    font-family: $primary-font-family;
+    position: absolute;
+    top: -26px;
+    left: 24px;
+  }
+
+}
+
+

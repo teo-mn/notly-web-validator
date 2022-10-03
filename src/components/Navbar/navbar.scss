@@ -1,0 +1,74 @@
+$primary-color: #FD4B1B;
+$secondary-color: #0A083A;
+$sub-color: #7E7CA6;
+
+#home-navbar{
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  .x-icon{
+    color: $primary-color;
+  }
+  @media screen and (min-width: 768px) {
+    .relative .active::before {
+      content: ' ';
+      color: $primary-color;
+      position: absolute;
+      top: 32px;
+      left: 45%;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 8px solid $primary-color;
+    }
+  }
+
+  .burger-menu-wrapper{
+    height: 92vh;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    background: #fff;
+    z-index: 10;
+    border-top: 0.5px solid #e3e3e3;
+    padding: 0 32px;
+
+    .sign-btn-block{
+      width: 90vw;
+      position: absolute;
+      bottom: 120px;
+      display: block;
+      text-align: center;
+
+    }
+    .sign-btn-block-register{
+      width: 90vw;
+      position: absolute;
+      bottom: 70px;
+      display: block;
+      text-align: center;
+      border: 1px solid $primary-color;
+    }
+  }
+  #mobile-menu{
+    a{
+      color:$secondary-color ;
+    }
+
+    .signing{
+      background-color: $primary-color;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+
+    .signup {
+      border: 1px solid $primary-color;
+      border-radius: 6px;
+      color: $primary-color;
+    }
+  }
+}
+
+
+

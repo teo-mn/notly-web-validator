@@ -1,0 +1,26 @@
+.process-card {
+  width: 280px;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (min-width: 1500px) {
+  .process-card::after {
+    content: '';
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/images/arrow.png');
+    position: absolute;
+    z-index: 2;
+    height: 8px;
+    width: 41px;
+    top: 50%;
+    right: -45%;
+  }
+
+  .process-card-wrapper:last-child > .process-card::after {
+    display: none;
+    visibility: hidden;
+  }
+}
