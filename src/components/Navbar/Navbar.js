@@ -20,35 +20,35 @@ const Navbar:React.FC = (props) => {
     // };
 
     return (
-        <nav className={"bg-white border-gray-200 py-4 drop-shadow-gray"} id={"home-navbar"}>
+        <nav className={"bg-primary-purple border-gray-200 py-4 drop-shadow-gray"} id={"home-navbar"}>
             <div className={"w-screen px-10 flex flex-wrap justify-between items-center"}>
-              {
-                !headerHideItems.includes('logo') &&
-              <>
-                <NavLink to={'/'} className={'flex items-center'}>
-                    <img src={window.env.headerLogoUrl ? window.env.headerLogoUrl : certifyLogo} className={"mr-3 h-7 md:h-9"} alt={"Certify Logo"}/>
-                </NavLink>
-                <button onClick={() => setIsOpen(!isOpen)} data-collapse-toggle={"mobile-menu"} type="button"
-                        className={"inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"}
-                        aria-controls="mobile-menu" aria-expanded="false">
-                    <span className={"sr-only"}>Open main menu</span>
+    {/*          {*/}
+    {/*            !headerHideItems.includes('logo') &&*/}
+    {/*          <>*/}
+    {/*            <NavLink to={'/'} className={'flex items-center'}>*/}
+    {/*                <img src={window.env.headerLogoUrl ? window.env.headerLogoUrl : certifyLogo} className={"mr-3 h-7 md:h-9"} alt={"Notly Logo"}/>*/}
+    {/*            </NavLink>*/}
+    {/*            <button onClick={() => setIsOpen(!isOpen)} data-collapse-toggle={"mobile-menu"} type="button"*/}
+    {/*                    className={"inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"}*/}
+    {/*                    aria-controls="mobile-menu" aria-expanded="false">*/}
+    {/*                <span className={"sr-only"}>Open main menu</span>*/}
 
-                    {!isOpen ? (
-                        <svg className={"w-6 h-6"} fill={"currentColor"} viewBox={"0 0 20 20"}
-                             xmlns={"http://www.w3.org/2000/svg"}>
-                            <path fillRule={"evenodd"}
-    d={"M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"}
-    clipRule={"evenodd"}/>
-                        </svg>
-                    ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 x-icon" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    )}
-                </button>
-              </>
-              }
+    {/*                {!isOpen ? (*/}
+    {/*                    <svg className={"w-6 h-6"} fill={"currentColor"} viewBox={"0 0 20 20"}*/}
+    {/*                         xmlns={"http://www.w3.org/2000/svg"}>*/}
+    {/*                        <path fillRule={"evenodd"}*/}
+    {/*d={"M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"}*/}
+    {/*clipRule={"evenodd"}/>*/}
+    {/*                    </svg>*/}
+    {/*                ) : (*/}
+    {/*                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 x-icon" fill="none"*/}
+    {/*                         viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">*/}
+    {/*                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>*/}
+    {/*                    </svg>*/}
+    {/*                )}*/}
+    {/*            </button>*/}
+    {/*          </>*/}
+    {/*          }*/}
 
                 <div className={"md:block md:w-auto" + (isOpen ? " flex w-full burger-menu-wrapper" : " hidden")}
                      id={"mobile-menu"}>

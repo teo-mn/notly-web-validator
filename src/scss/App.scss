@@ -9,6 +9,8 @@ $primary-color: #FD4B1B;
 $secondary-color: #0A083A;
 $sub-color: #7E7CA6;
 
+$primary-purple: #230158;
+
 @import "modal";
 @import "tooltip";
 @import "alert";
@@ -383,84 +385,75 @@ p {
 
 // New_UI
 
-#teneg-lottie {
-    height: calc(100vh - 172px - 70px - 61px);
+#app{
+    background-color: $primary-purple;
 }
 
 #main-container{
-    //height: calc(100vh - 172px - 70px - 61px);
-    @media screen and (max-width: 1050px){
-        height: auto;
-    }
-
-    .titleBlockchainText{
-        color: $primary-color;
-        font-family: 'Comfortaa', cursive;
-    }
-    .landing-title-container{
-        @media screen and (max-width: 600px){
-            margin-top: 110px;
-        }
-        @media screen and (max-width: 1050px){
-            padding-right: 40px;
-            padding-left: 40px;
-        }
-    }
-    .landing-title{
-        color: $secondary-color;
-        font-family: 'Comfortaa', cursive;
-    }
     .dropzone-field{
-        border: 1px solid $primary-color;
-        height: 80px;
-        max-width: 700px;
-
-        .text-sm{
-            line-height: 1rem;
-        }
-        @media screen and (max-width: 640px) {
-            height: 60px;
-        }
-
-        @media screen and (max-width: 300px){
-            display: flex;
-            flex-direction: column;
-            height: 40px;
-            margin-bottom: 60px;
-        }
-
-        .dropzone{
-            width: 100%;
-            cursor: pointer;
-            margin: 5px;
-
-            .dropzone-text{
-                @media screen and (max-width: 640px) {
-                    font-size: 12px;
-                    line-height: 12px;
-                }
-            }
-
-            .dropzone-btn{
-                background-color: $primary-color;
-                font-size: 16px;
-                padding: 26px 20px;
-                color: #fff;
-                font-weight: 500;
-                text-align: center;
-
-                @media screen and (max-width: 640px) {
-                    padding: 16px 20px;
-                    font-size: 12px;
-                }
-            }
-        }
+        background-color: rgba(255, 255, 255, 0.1);
     }
-    .grid-cols-1{
-        @media screen and (max-width: 1050px) {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
+
+    #pdf_dropzone{
+        //width: 790px;
+        //background-color: #04E8AA;
     }
+    //display: flex;
+    //justify-content: center;
+    //align-content: center;
+    //flex-direction: column;
+
+    //.dropzone-field{
+    //    border: 1px solid $primary-color;
+    //    height: 80px;
+    //    max-width: 700px;
+    //
+    //    .text-sm{
+    //        line-height: 1rem;
+    //    }
+    //    @media screen and (max-width: 640px) {
+    //        height: 60px;
+    //    }
+    //
+    //    @media screen and (max-width: 300px){
+    //        display: flex;
+    //        flex-direction: column;
+    //        height: 40px;
+    //        margin-bottom: 60px;
+    //    }
+    //
+    //    .dropzone{
+    //        width: 100%;
+    //        cursor: pointer;
+    //        margin: 5px;
+    //
+    //        .dropzone-text{
+    //            @media screen and (max-width: 640px) {
+    //                font-size: 12px;
+    //                line-height: 12px;
+    //            }
+    //        }
+    //
+    //        .dropzone-btn{
+    //            background-color: $primary-color;
+    //            font-size: 16px;
+    //            padding: 26px 20px;
+    //            color: #fff;
+    //            font-weight: 500;
+    //            text-align: center;
+    //
+    //            @media screen and (max-width: 640px) {
+    //                padding: 16px 20px;
+    //                font-size: 12px;
+    //            }
+    //        }
+    //    }
+    //}
+    //.grid-cols-1{
+    //    @media screen and (max-width: 1050px) {
+    //        grid-template-columns: repeat(1, minmax(0, 1fr));
+    //    }
+    //}
 }
 
 #sub-container{
@@ -475,12 +468,12 @@ p {
 }
 
 #footer{
-    background-color: #FDFDFF;
-    border-top: 1px solid #F6F6F6;
-    //position: fixed;
-    //bottom: 0;
-
-    a{
-        color: $sub-color;
-    }
+    position: fixed;
+    bottom: 0;
+    //background-color: #FDFDFF;
+    //border-top: 1px solid #F6F6F6;
+    //
+    //a{
+    //    color: $sub-color;
+    //}
 }

@@ -54,19 +54,19 @@ class App extends React.Component {
     return (
       <LocaleProvider>
         <IntlProvider locale={locale} messages={languageMap[locale]} key={locale}>
-          <div className="App">
+          <div id="app" className={'justify-between'}>
             <Router>
               <Navbar/>
               <Switch>
                 <Route exact path="/">
                   <Home/>
                 </Route>
-                <Route path="/partners">
-                  <SchoolList/>
-                </Route>
-                <Route path="/about">
-                  <AboutHome/>
-                </Route>
+                {/*<Route path="/partners">*/}
+                {/*  <SchoolList/>*/}
+                {/*</Route>*/}
+                {/*<Route path="/about">*/}
+                {/*  <AboutHome/>*/}
+                {/*</Route>*/}
                 <Route path="/partnersForm">
                   <PartnersForm/>
                 </Route>
