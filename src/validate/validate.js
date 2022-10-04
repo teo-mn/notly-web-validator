@@ -85,7 +85,7 @@ async function _validateUniversity(PDFHash, metadata, isTestnet) {
   const utf8 = require('utf8');
   const x = utf8.encode(univMeta)
   const metaHash = await extractHash(x);
-  const certInfo = await requestUniversityCertByHash(PDFHash, metadata.blockchain.smartContractAddress, true);
+  const certInfo = await requestUniversityCertByHash(PDFHash, metadata.blockchain.smartContractAddress, isTestnet);
   if (certInfo.cert.metaHash.toLowerCase() !== metaHash.toLowerCase()) {
     throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
   }
