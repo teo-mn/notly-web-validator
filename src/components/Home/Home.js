@@ -66,10 +66,10 @@ class Home extends React.Component<IntlProps> {
 
     render() {
         return (
-            <div>
-                <div className={'container mx-auto pt-24 flex justify-center py-28'} id={'main-container'}>
+            <div className={'bg-primary-purple'}>
+                <div className={'container mx-auto flex justify-center py-28'} id={'main-container'}>
                     <div className={'flex flex-col'}>
-                        <NavLink to={'/'} className={'flex justify-center mb-20 mt-28'}>
+                        <NavLink to={'/'} className={'flex justify-center mb-20 mt-12'}>
                             <img src={notlyLogo} className={"mr-3 sm:w-72 w-48"} alt={"Notly Logo"}/>
                         </NavLink>
 

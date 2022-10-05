@@ -26,6 +26,10 @@ module.exports = {
             },
             width: {
                 '112': '36rem'
+            },
+            gridTemplateRows: {
+                // Complex site-specific column configuration
+                'custom-container': '74px auto 60px',
             }
         },
     },

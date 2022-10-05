@@ -7,8 +7,8 @@ const PartnersForm = () => {
   //   history.push('/partnersList');
   // }
   return (
-      <div className={'mt-10 bg-[#FDFDFF]'}>
-        <iframe id={'partnersForm'} className={'h-[89.5vh] w-screen'} src="https://forms.office.com/r/q6g1fR6VKn" title={'Бүртгүүлэх'}/>
+      <div className={'bg-[#FDFDFF]'}>
+        <iframe id={'partnersForm'} className={'h-full w-screen'} src="https://forms.office.com/r/q6g1fR6VKn" title={'Бүртгүүлэх'}/>
       </div>
   )
 

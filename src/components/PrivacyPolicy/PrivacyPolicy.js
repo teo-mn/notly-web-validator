@@ -2,7 +2,9 @@ import React from 'react';
 
 const PrivacyPolicy = () => {
     return (
-        <div className={'mt-28'}>PrivacyPolicy</div>
+        <div className={'container mx-auto bg-amber-300'}>
+            <h3>ҮЙЛЧИЛГЭЭНИЙ НӨХЦӨЛ, НУУЦЛАЛЫН БОДЛОГО</h3>
+        </div>
     )
 }
 

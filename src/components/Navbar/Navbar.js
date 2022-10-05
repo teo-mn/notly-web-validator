@@ -30,7 +30,7 @@ const Navbar = (props) => {
     // };
 
     return (
-        <nav className={"bg-primary-purple border-gray-200 py-4 drop-shadow-gray"} id={"home-navbar"}>
+        <nav className={"bg-primary-purple border-gray-200 py-4 drop-shadow-gray h-[74px]"} id={"home-navbar"}>
             <div className={"w-screen md:px-24 px-8 flex flex-wrap justify-between items-center"}>
 
                 <NavLink to={'/'} className={pathname === '/' ? 'invisible' : ''}>
@@ -38,7 +38,7 @@ const Navbar = (props) => {
                 </NavLink>
 
                 <button onClick={() => setIsOpen(!isOpen)} data-collapse-toggle={"mobile-menu"} type="button"
-                        className={"text-sm text-gray-300 rounded-lg md:hidden hover:text-white focus:outline-none"}
+                        className={"text-sm py-2 text-gray-300 rounded-lg md:hidden hover:text-white focus:outline-none"}
                         aria-controls="mobile-menu" aria-expanded="false">
                     <span className={"sr-only"}>Open main menu</span>
                     {!isOpen ? (
@@ -58,7 +58,7 @@ const Navbar = (props) => {
 
                 <div className={"md:block md:w-auto" + (isOpen ? " flex w-full burger-menu-wrapper" : " hidden")}
                      id={"mobile-menu"}>
-                    <ul className={"flex flex-col md:flex-row mt-4 md:space-x-8 md:mt-0 pt-3 font-medium"}>
+                    <ul className={"flex flex-col md:flex-row md:space-x-8 font-medium"}>
                         <li className={'md:px-0 px-4 md:py-0 py-1'}>
                             <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'}
                                className={"flex flex-row text-white text-base block p-2"}>

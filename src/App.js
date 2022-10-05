@@ -55,9 +55,10 @@ class App extends React.Component {
         return (
             <LocaleProvider>
                 <IntlProvider locale={locale} messages={languageMap[locale]} key={locale}>
-                    <div id="app" className={'h-screen flex flex-col justify-between'}>
-                        <Router>
-                            <Navbar/>
+                    <Router>
+                        <Navbar/>
+                    <div id="app" className={' h-screen grid grid-rows-custom-container'}>
+                        <div></div>
                             <Switch>
                                 <Route exact path="/">
                                     <Home/>
@@ -69,9 +70,10 @@ class App extends React.Component {
                                     <PrivacyPolicy/>
                                 </Route>
                             </Switch>
-                            <Footer/>
-                        </Router>
+
+                        <Footer/>
                     </div>
+                    </Router>
                 </IntlProvider>
             </LocaleProvider>
         );
