@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <nav className={"bg-primary-purple shadow"} id={'footer'}>
-        <div className={"w-screen px-6 sm:px-16 py-2 sm:py-3"}>
+        <div className={"w-screen px-6 sm:px-20 py-2 sm:py-3"}>
             <ul className={"flex justify-end mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"}>
                 <li>
                     <a href="https://dashboard.certify.mn/privacy-policy"

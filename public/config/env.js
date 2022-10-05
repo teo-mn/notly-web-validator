@@ -1,11 +1,6 @@
 window.env = {
-  isLoginAllowed: true,
-  headerLogoUrl: 'logo192.png',
   faviconIconUrl: 'favicon.svg',
-  isOrgAllowed: false,
-  isOnPremise: true,
-
-  dashboardUrl: 'https://verify.mn/dashboard',
+  dashboardUrl: 'https://notly.mn/dashboard',
 
   REACT_APP_SERVICE_NAME: 'crx',
   REACT_APP_AVAILABLE_CONTRACT_ADDRESSES: ['0x5d305D8423c0f07bEaf15ba6a5264e0c88fC41B4',
@@ -18,5 +13,4 @@ window.env = {
   REACT_APP_COREXCHAIN_NODE_URL: 'https://node.corexchain.io',
   REACT_APP_COREXCHAIN_NODE_URL_TESTNET: 'https://node-testnet.corexchain.io',
 
-  headerHideItems: ['about', 'partners']
 };

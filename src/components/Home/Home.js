@@ -66,15 +66,15 @@ class Home extends React.Component<IntlProps> {
 
     render() {
         return (
-            <div className="App">
-                <div className={'container mx-auto pt-24 flex justify-center'} id={'main-container'}>
+            <div>
+                <div className={'container mx-auto pt-24 flex justify-center py-28'} id={'main-container'}>
                     <div className={'flex flex-col'}>
-                        <NavLink to={'/'} className={'flex justify-center'}>
-                            <img src={notlyLogo} className={"mr-3 w-72"} alt={"Notly Logo"}/>
+                        <NavLink to={'/'} className={'flex justify-center mb-20 mt-28'}>
+                            <img src={notlyLogo} className={"mr-3 sm:w-72 w-48"} alt={"Notly Logo"}/>
                         </NavLink>
 
                         <div className={'dropzone-field bg-white px-14 py-11 rounded'}>
-                            <Dropzone className={'drag-and-drop cursor-pointer bg-amber-600 border border-amber-700 h-16 '} onDrop={this.processPDF}
+                            <Dropzone className={'drag-and-drop cursor-pointer h-16 '} onDrop={this.processPDF}
                                       multiple={false} accept="application/pdf">
                                 {({getRootProps, getInputProps, isDragActive}) => (
                                     <div {...getRootProps()}
@@ -82,12 +82,12 @@ class Home extends React.Component<IntlProps> {
                                         <input id='pdf_dropzone' className={''} {...getInputProps()} />
                                         {
                                             isDragActive ?
-                                                <div className='pdf_dropzone bg-white text-gray-500 text-base ml-5 p-4 w-[786px] rounded'>Файл (drag & drop)</div> :
+                                                <div className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл (drag & drop)</div> :
                                                 <div className={'pdf_uploadzone flex'}>
-                                                    <div className={'p-4 bg-white rounded-l-lg w-[600px]'}>
-                                                        <span className={'text-base text-gray-500 ml-5'}>Файл оруулах хэсэг</span>
+                                                    <div className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
+                                                        <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
                                                     </div>
-                                                    <span className={'dropzone-btn text-white bg-primary-pink uppercase text-base font-medium py-4 px-5 rounded-r-lg'}>Баталгаажуулах</span>
+                                                    <span className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
                                                 </div>
                                         }
                                     </div>

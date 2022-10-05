@@ -9,8 +9,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SchoolList from "./components/Schools/SchoolList/SchoolList";
-import AboutHome from "./components/AboutUs/AboutHome/AboutHome";
 import PartnersForm from "./components/PartnersForm/PartnersForm";
 import {IntlProvider} from "react-intl";
 import {WrappedComponentProps} from "react-intl";
@@ -54,19 +52,13 @@ class App extends React.Component {
     return (
       <LocaleProvider>
         <IntlProvider locale={locale} messages={languageMap[locale]} key={locale}>
-          <div id="app" className={'justify-between'}>
+          <div id="app" className={'h-screen flex flex-col justify-between'}>
             <Router>
               <Navbar/>
               <Switch>
                 <Route exact path="/">
                   <Home/>
                 </Route>
-                {/*<Route path="/partners">*/}
-                {/*  <SchoolList/>*/}
-                {/*</Route>*/}
-                {/*<Route path="/about">*/}
-                {/*  <AboutHome/>*/}
-                {/*</Route>*/}
                 <Route path="/partnersForm">
                   <PartnersForm/>
                 </Route>

@@ -5,7 +5,6 @@ module.exports = {
             colors: {
                 'primary-yellow': '#FD4B1B',
                 // 'primary-purple': '#583BEE',
-
                 'primary-black': '#0A083A',
                 'secondary-purple': '#5B5A8F',
                 'secondary-yellow': '#FFEDE8',
