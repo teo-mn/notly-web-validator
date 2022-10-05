@@ -8,7 +8,7 @@ import notly_logo from "../../assets/images/notly_logo.svg";
 
 const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-    const { dashboardUrl } =  window.env;
+    const {dashboardUrl} = window.env;
 
     const location = useLocation();
     const {pathname} = location;
@@ -33,11 +33,12 @@ const Navbar = (props) => {
         <nav className={"bg-primary-purple border-gray-200 py-4 drop-shadow-gray"} id={"home-navbar"}>
             <div className={"w-screen md:px-24 px-8 flex flex-wrap justify-between items-center"}>
 
-                <NavLink to={'/'} className={pathname === '/' ? 'invisible' : ''} >
+                <NavLink to={'/'} className={pathname === '/' ? 'invisible' : ''}>
                     <img src={notly_logo} className={"h-7"} alt={"Notly Logo"}/>
                 </NavLink>
 
-                <button onClick={() => setIsOpen(!isOpen)} data-collapse-toggle={"mobile-menu"} type="button" className={"text-sm text-gray-300 rounded-lg md:hidden hover:text-white focus:outline-none"}
+                <button onClick={() => setIsOpen(!isOpen)} data-collapse-toggle={"mobile-menu"} type="button"
+                        className={"text-sm text-gray-300 rounded-lg md:hidden hover:text-white focus:outline-none"}
                         aria-controls="mobile-menu" aria-expanded="false">
                     <span className={"sr-only"}>Open main menu</span>
                     {!isOpen ? (
@@ -55,21 +56,25 @@ const Navbar = (props) => {
                     )}
                 </button>
 
-                <div className={"md:block md:w-auto" + (isOpen ? " flex w-full burger-menu-wrapper" : " hidden")} id={"mobile-menu"}>
+                <div className={"md:block md:w-auto" + (isOpen ? " flex w-full burger-menu-wrapper" : " hidden")}
+                     id={"mobile-menu"}>
                     <ul className={"flex flex-col md:flex-row mt-4 md:space-x-8 md:mt-0 pt-3 font-medium"}>
                         <li className={'md:px-0 px-4 md:py-0 py-1'}>
-                            <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'} className={"flex flex-row text-white text-base block p-2"}>
-                                <img className={'mr-1.5'} src={github_icon} /> Github
+                            <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'}
+                               className={"flex flex-row text-white text-base block p-2"}>
+                                <img className={'mr-1.5'} src={github_icon}/> Github
                             </a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <a href={ dashboardUrl + '/login' } className={"text-white text-base block p-2"}>Нэвтрэх</a>
+                            <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>Нэвтрэх</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <NavLink to="/partnersForm" className={"text-white text-base block p-2" + (isOpen ? "" : " ")}>Бүртгүүлэх</NavLink>
+                            <NavLink to="/partnersForm"
+                                     className={"text-white text-base block p-2" + (isOpen ? "" : " ")}>Бүртгүүлэх</NavLink>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-2'}>
-                            <a href={''} className={"text-white text-base border rounded-lg block px-6 py-2"}>Апп татах</a>
+                            <a href={''} className={"text-white text-base border rounded-lg block px-6 py-2"}>Апп
+                                татах</a>
                         </li>
 
                         {/*language*/}

@@ -82,12 +82,16 @@ class Home extends React.Component<IntlProps> {
                                         <input id='pdf_dropzone' className={''} {...getInputProps()} />
                                         {
                                             isDragActive ?
-                                                <div className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл (drag & drop)</div> :
+                                                <div
+                                                    className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл
+                                                    (drag & drop)</div> :
                                                 <div className={'pdf_uploadzone flex'}>
-                                                    <div className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
+                                                    <div
+                                                        className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
                                                         <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
                                                     </div>
-                                                    <span className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
+                                                    <span
+                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
                                                 </div>
                                         }
                                     </div>

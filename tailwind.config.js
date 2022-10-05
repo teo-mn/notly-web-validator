@@ -8,7 +8,7 @@ module.exports = {
                 'primary-black': '#0A083A',
                 'secondary-purple': '#5B5A8F',
                 'secondary-yellow': '#FFEDE8',
-                'primary-gray':'#91989E',
+                'primary-gray': '#91989E',
 
                 'primary-purple': '#230158',
                 'primary-pink': '#E8296F',
@@ -24,7 +24,7 @@ module.exports = {
             minHeight: {
                 'with-footer': '79vh'
             },
-            width:{
+            width: {
                 '112': '36rem'
             }
         },
