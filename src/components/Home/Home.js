@@ -73,7 +73,7 @@ class Home extends React.Component<IntlProps> {
                             <img src={notlyLogo} className={"mr-3 sm:w-72 w-48"} alt={"Notly Logo"}/>
                         </NavLink>
 
-                        <div className={'dropzone-field bg-white px-14 py-11 rounded'}>
+                        <div className={'dropzone-field bg-white sm:px-14 px-6 sm:py-11 py-8 rounded'}>
                             <Dropzone className={'drag-and-drop cursor-pointer h-16 '} onDrop={this.processPDF}
                                       multiple={false} accept="application/pdf">
                                 {({getRootProps, getInputProps, isDragActive}) => (

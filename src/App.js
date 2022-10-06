@@ -57,7 +57,7 @@ class App extends React.Component {
                 <IntlProvider locale={locale} messages={languageMap[locale]} key={locale}>
                     <Router>
                         <Navbar/>
-                    <div id="app" className={' h-screen grid grid-rows-custom-container'}>
+                    <div id="app" className={'h-screen grid grid-rows-custom-container bg-main-bg'}>
                         <div></div>
                             <Switch>
                                 <Route exact path="/">

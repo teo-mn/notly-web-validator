@@ -12,6 +12,7 @@ module.exports = {
 
                 'primary-purple': '#230158',
                 'primary-pink': '#E8296F',
+                'main-bg': '#FDFDFF',
             },
             dropShadow: {
                 'gray': '0 1px 1px rgba(0, 0, 0, 0.1)',
@@ -30,6 +31,9 @@ module.exports = {
             gridTemplateRows: {
                 // Complex site-specific column configuration
                 'custom-container': '74px auto 60px',
+            },
+            listStyleType: {
+                circle: 'circle',
             }
         },
     },
