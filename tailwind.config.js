@@ -4,11 +4,15 @@ module.exports = {
         extend: {
             colors: {
                 'primary-yellow': '#FD4B1B',
-                'primary-purple': '#583BEE',
+                // 'primary-purple': '#583BEE',
                 'primary-black': '#0A083A',
                 'secondary-purple': '#5B5A8F',
                 'secondary-yellow': '#FFEDE8',
-                'primary-gray':'#91989E'
+                'primary-gray': '#91989E',
+
+                'primary-purple': '#230158',
+                'primary-pink': '#E8296F',
+                'main-bg': '#FDFDFF',
             },
             dropShadow: {
                 'gray': '0 1px 1px rgba(0, 0, 0, 0.1)',
@@ -21,8 +25,15 @@ module.exports = {
             minHeight: {
                 'with-footer': '79vh'
             },
-            width:{
+            width: {
                 '112': '36rem'
+            },
+            gridTemplateRows: {
+                // Complex site-specific column configuration
+                'custom-container': '74px auto 60px',
+            },
+            listStyleType: {
+                circle: 'circle',
             }
         },
     },

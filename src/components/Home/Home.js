@@ -5,14 +5,10 @@ import {hot} from 'react-hot-loader';
 import CoreValidator from '../../CoreValidator';
 import Modal from '../../components/Modal';
 
-import numlogo from "../../assets/images/school-logos/gray-logos/logo_num_gray.png";
-import mustlogo from "../../assets/images/school-logos/gray-logos/logo_must_gray.png";
-import ufelogo from "../../assets/images/school-logos/gray-logos/logo-ufe-gray.png";
-import PMIlogo from "../../assets/images/school-logos/gray-logos/logo_PMI_gray.png";
-import MStarslogo from "../../assets/images/school-logos/gray-logos/logo_MstarsHub_gray.png";
-import LandingAnimationLottie from "../../components/LandingAnimation/LandingImage";
-import type { IntlProps } from '../../App';
+import type {IntlProps} from '../../App';
 import {injectIntl} from "react-intl";
+import notlyLogo from "../../assets/images/notly_logo.svg";
+import {NavLink} from "react-router-dom";
 
 class Home extends React.Component<IntlProps> {
     state = {
@@ -66,69 +62,45 @@ class Home extends React.Component<IntlProps> {
         this.cleanUp();
     }
 
-    translate = (id) => id ? this.props.intl.formatMessage({ id }) : id;
+    translate = (id) => id ? this.props.intl.formatMessage({id}) : id;
 
     render() {
-        const { isOrgAllowed } = window.env;
-
         return (
-            <div className="App">
+            <div className={'bg-primary-purple'}>
+                <div className={'container mx-auto flex justify-center py-28'} id={'main-container'}>
+                    <div className={'flex flex-col'}>
+                        <NavLink to={'/'} className={'flex justify-center mb-20 mt-12'}>
+                            <img src={notlyLogo} className={"mr-3 sm:w-72 w-48"} alt={"Notly Logo"}/>
+                        </NavLink>
 
-                <div className={'container mx-auto h-[74vh]'} id={'main-container'}>
-                    <div className={'grid grid-cols-1 md:grid-cols-2 gap-4'}>
-                        <div className={'landing-title-container lg:mt-52 sm:mt-44 px-10 md:px-0'}>
-                            <div className={'mb-10 sm:mb-16'}>
-                                <h1 className={'landing-title text-[22px] sm:text-[32px] font-bold uppercase'}><span
-                                    className={'titleBlockchainText text-[22px] sm:text-[32px] font-bold'}>Блокчэйн</span> Сүлжээнд
-                                </h1>
-                                <h1 className={'landing-title text-[22px] sm:text-[32px] font-bold uppercase'}>Дипломоо
-                                    Баталгаажуул</h1>
-                            </div>
-
-                            <div className={'dropzone-field flex justify-between'}>
-                                <Dropzone className={'drag-and-drop cursor-pointer'} onDrop={this.processPDF}
-                                          multiple={false} accept="application/pdf">
-                                    {({getRootProps, getInputProps, isDragActive}) => (
-                                        <div {...getRootProps()}
-                                             className={classNames('dropzone', {'hover': isDragActive})}>
-                                            <input id='pdf_dropzone' {...getInputProps()} />
-                                            {
-                                                isDragActive ?
-                                                    <div id='pdf_dropzone'
-                                                         className={'text-sm sm:text-base font-medium mx-4 sm:mx-8 mt-3 sm:mt-7'}>Файл
-                                                        (drag & drop)</div> :
-                                                    <div id='pdf_dropzone'
-                                                         className={'text-sm sm:text-base font-medium flex justify-between'}>
-                                                        <span className={'dropzone-text self-center mx-4 sm:mx-6'}>Диплом оруулах хэсэг</span>
-                                                        <span className={'dropzone-btn uppercase'}>Баталгаажуулах</span>
+                        <div className={'dropzone-field bg-white sm:px-14 px-6 sm:py-11 py-8 rounded'}>
+                            <Dropzone className={'drag-and-drop cursor-pointer h-16 '} onDrop={this.processPDF}
+                                      multiple={false} accept="application/pdf">
+                                {({getRootProps, getInputProps, isDragActive}) => (
+                                    <div {...getRootProps()}
+                                         className={classNames('dropzone', {'hover': isDragActive})}>
+                                        <input id='pdf_dropzone' className={''} {...getInputProps()} />
+                                        {
+                                            isDragActive ?
+                                                <div
+                                                    className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл
+                                                    (drag & drop)</div> :
+                                                <div className={'pdf_uploadzone flex'}>
+                                                    <div
+                                                        className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
+                                                        <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
                                                     </div>
-                                            }
-                                        </div>
-                                    )}
-                                </Dropzone>
-                            </div>
-                        </div>
-                        <div className={'flex justify-center lg:mt-20 md:mt-16 landing-animation'}>
-                            <LandingAnimationLottie/>
+                                                    <span
+                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
+                                                </div>
+                                        }
+                                    </div>
+                                )}
+                            </Dropzone>
                         </div>
 
                     </div>
                 </div>
-
-                <div id={'sub-container'}>
-                    <div className={`w-full mx-auto px-16 pt-9 pb-6${!isOrgAllowed ? ' invisible' : ''}`}>
-                        <h1 className={'text-base font-medium uppercase mb-8'}>Байгууллагууд</h1>
-                        <div className={'flex justify-center md:justify-start'}>
-                            <img src={numlogo} className={"h-14 pr-6"} alt={"Num_logo"}/>
-                            <img src={mustlogo} className={"h-14 px-6"} alt={"Num_logo"}/>
-                            <img src={ufelogo} className={"h-12 px-6"} alt={"Num_logo"}/>
-                            <img src={PMIlogo} className={"h-10 px-6"} alt={"PMI_logo"}/>
-                            <img src={MStarslogo} className={"h-10 px-6"} alt={"MStarslogo"}/>
-                        </div>
-                    </div>
-                </div>
-
-
 
                 <Modal
                     isOpen={this.state.modalOpen}
