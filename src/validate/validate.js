@@ -45,7 +45,7 @@ async function _validateInner(metadata, pdfString) {
         if (certification.isRevoked) {
           result.state = 'REVOKED';
         } else {
-          const expireDate = parseInt(certification.expiredAt) * 1000 || 0;
+          const expireDate = parseInt(certification.expireDate) * 1000 || 0;
           const now = new Date().getTime();
           if (expireDate !== 0 && now > expireDate) {
             result.state = 'EXPIRED';
@@ -99,7 +99,7 @@ async function _validateUniversity(PDFHash, metadata, isTestnet) {
   if (certInfo.revokeInfo.isRevoked) {
     result.state = 'REVOKED';
   } else {
-    const expireDate = parseInt(certInfo.cert.expiredAt) * 1000 || 0;
+    const expireDate = parseInt(certInfo.cert.expireDate) * 1000 || 0;
     const now = new Date().getTime();
     if (expireDate !== 0 && now > expireDate) {
       result.state = 'EXPIRED';
