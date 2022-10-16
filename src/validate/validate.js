@@ -91,12 +91,13 @@ async function _validateUniversity(PDFHash, metadata, isTestnet) {
   }
   console.log('Hash matched');
   console.log(certInfo);
-  if (!certInfo.approveInfo.isApproved) {
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
-  }
-  console.log('Approve passed');
+  // if (!certInfo.approveInfo.isApproved) {
+  //   throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
+  // }
 
-  if (certInfo.revokeInfo.isRevoked) {
+  if (!certInfo.approveInfo.isApproved) {
+    result.state = 'APPROVE_PENDING';
+  } else if (certInfo.revokeInfo.isRevoked) {
     result.state = 'REVOKED';
   } else {
     const expireDate = parseInt(certInfo.cert.expireDate) * 1000 || 0;

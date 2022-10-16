@@ -169,6 +169,12 @@ const Result = ({docType, result, error, customText}) => {
                   </div>
               )}
 
+              {result.state === 'APPROVE_PENDING' && (
+                  <div className="bc-alert bc-alert-danger bc-text-center">
+                    <div className={'text-[#DB9390] text-xl font-medium'} style={{color: '#DB9390',}}>Боловсролын ерөнхий газраас хүлээгдэж байна</div>
+                  </div>
+              )}
+
               <IdentityObject
                   address={result.cert.issuer}
                   issuer={result.issuer.name || 'Unkown'}
