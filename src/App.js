@@ -8,7 +8,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route ,Redirect} from "react-router-dom";
 import PartnersForm from "./components/PartnersForm/PartnersForm";
 import {IntlProvider} from "react-intl";
 import {WrappedComponentProps} from "react-intl";
@@ -69,6 +69,7 @@ class App extends React.Component {
                                 <Route path="/privacyPolicy">
                                     <PrivacyPolicy/>
                                 </Route>
+                                <Redirect from="*" to="/" />
                             </Switch>
 
                         <Footer/>
