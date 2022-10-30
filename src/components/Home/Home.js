@@ -91,7 +91,7 @@ class Home extends React.Component<IntlProps> {
                                                         <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
                                                     </div>
                                                     <span
-                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
+                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Шалгах</span>
                                                 </div>
                                         }
                                     </div>
