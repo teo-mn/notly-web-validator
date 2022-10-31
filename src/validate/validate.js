@@ -9,7 +9,7 @@ export default async function validate(
 ) {
   const metadata = await extractMetadata(pdfJSMetadata).catch(e => {
     console.error(e)
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.')
+    throw new Error('Энэхүү файл нь блокчэйн сүлжээнд баталгаажаагүй байна.')
   })
   let pdfString = ArrayBufferToString(pdfArrayBuffer)
   return await _validateInner(metadata, pdfString, pdfJSMetadata)
@@ -45,7 +45,7 @@ async function _validateInner(metadata, pdfString) {
         if (certification.isRevoked) {
           result.state = 'REVOKED';
         } else {
-          const expireDate = parseInt(certification.expiredAt) * 1000 || 0;
+          const expireDate = parseInt(certification.expireDate) * 1000 || 0;
           const now = new Date().getTime();
           if (expireDate !== 0 && now > expireDate) {
             result.state = 'EXPIRED';
@@ -67,7 +67,7 @@ async function _validateInner(metadata, pdfString) {
     throw new Error('Баталгаажуулах явцад алдаа гарлаа.')
   }
   if (!isValid) {
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.')
+    throw new Error('Энэхүү файл нь блокчэйн сүлжээнд баталгаажаагүй байна.')
   }
   return result;
 }
@@ -87,19 +87,20 @@ async function _validateUniversity(PDFHash, metadata, isTestnet) {
   const metaHash = await extractHash(x);
   const certInfo = await requestUniversityCertByHash(PDFHash, metadata.blockchain.smartContractAddress, isTestnet);
   if (certInfo.cert.metaHash.toLowerCase() !== metaHash.toLowerCase()) {
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
+    throw new Error('Энэхүү файл нь блокчэйн сүлжээнд баталгаажаагүй байна.');
   }
   console.log('Hash matched');
   console.log(certInfo);
-  if (!certInfo.approveInfo.isApproved) {
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
-  }
-  console.log('Approve passed');
+  // if (!certInfo.approveInfo.isApproved) {
+  //   throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
+  // }
 
-  if (certInfo.revokeInfo.isRevoked) {
+  if (!certInfo.approveInfo.isApproved) {
+    result.state = 'APPROVE_PENDING';
+  } else if (certInfo.revokeInfo.isRevoked) {
     result.state = 'REVOKED';
   } else {
-    const expireDate = parseInt(certInfo.cert.expiredAt) * 1000 || 0;
+    const expireDate = parseInt(certInfo.cert.expireDate) * 1000 || 0;
     const now = new Date().getTime();
     if (expireDate !== 0 && now > expireDate) {
       result.state = 'EXPIRED';
@@ -113,11 +114,11 @@ async function _validateUniversity(PDFHash, metadata, isTestnet) {
     result.issuer = await requestIssuerByAddress(certInfo.cert.issuer, isTestnet);
   } catch (e) {
     console.error(e);
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
+    throw new Error('Энэхүү файл нь блокчэйн сүлжээнд баталгаажаагүй байна.');
   }
   // үндсэн сүлжээнд зөвхөн баталгаажсан байгууллагын мэдээллийг хүчинтэй харуулна
   if (!isTestnet && !result.issuer.isActive) {
-    throw new Error('Блокчэйн сүлжээнд баталгаажаагүй байна.');
+    throw new Error('Энэхүү файл нь блокчэйн сүлжээнд баталгаажаагүй байна.');
   }
 
   return result;

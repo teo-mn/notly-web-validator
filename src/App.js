@@ -8,13 +8,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route ,Redirect} from "react-router-dom";
 import PartnersForm from "./components/PartnersForm/PartnersForm";
 import {IntlProvider} from "react-intl";
 import {WrappedComponentProps} from "react-intl";
 import {LocaleContext, LocaleProvider} from "./LocaleContext";
 import {languageMap} from "./translations";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import DownloadApp from "./components/DownloadApp/DownloadApp";
 
 export
 type
@@ -66,9 +67,13 @@ class App extends React.Component {
                                 <Route path="/partnersForm">
                                     <PartnersForm/>
                                 </Route>
+                                <Route path="/downloadApp">
+                                    <DownloadApp/>
+                                </Route>
                                 <Route path="/privacyPolicy">
                                     <PrivacyPolicy/>
                                 </Route>
+                                <Redirect from="*" to="/" />
                             </Switch>
 
                         <Footer/>

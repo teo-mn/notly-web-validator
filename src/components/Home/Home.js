@@ -69,10 +69,9 @@ class Home extends React.Component<IntlProps> {
             <div className={'bg-primary-purple'}>
                 <div className={'container mx-auto flex justify-center py-28'} id={'main-container'}>
                     <div className={'flex flex-col'}>
-                        <NavLink to={'/'} className={'flex justify-center mb-20 mt-12'}>
-                            <img src={notlyLogo} className={"mr-3 sm:w-72 w-48"} alt={"Notly Logo"}/>
+                        <NavLink to={'/'} className={'flex justify-center mt-12'}>
+                            <img src={notlyLogo} className={"mr-3 sm:w-72 w-48 mb-20"} alt={"Notly Logo"}/>
                         </NavLink>
-
                         <div className={'dropzone-field bg-white sm:px-14 px-6 sm:py-11 py-8 rounded'}>
                             <Dropzone className={'drag-and-drop cursor-pointer h-16 '} onDrop={this.processPDF}
                                       multiple={false} accept="application/pdf">
@@ -91,14 +90,20 @@ class Home extends React.Component<IntlProps> {
                                                         <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
                                                     </div>
                                                     <span
-                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Баталгаажуулах</span>
+                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Шалгах</span>
                                                 </div>
                                         }
                                     </div>
                                 )}
                             </Dropzone>
                         </div>
-
+                        <div className={'flex justify-center text-center text-[#8B7AA6] font-normal my-8 text-xl uppercase'}>
+                            <span>Дижитал өмч</span>
+                            <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
+                            <span>Дижитал диплом</span>
+                            <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
+                            <span>Дижитал үнэмлэх</span>
+                        </div>
                     </div>
                 </div>
 
