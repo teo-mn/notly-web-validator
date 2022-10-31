@@ -11,9 +11,9 @@ const Footer = () => {
                             бодлого</NavLink>
                     </li>
                     <li>
-                        <a target={'_blank'} href="https://www.corexchain.io/"
+                        <a target={'_blank'} href="https://www.teo.mn/"
                            className={"block py-2 pr-4 pl-3 text-[#D3CCDE] text-sm"}
-                           aria-current="page">Powered by COREXCHAIN</a>
+                           aria-current="page">Powered by TEO blockchain</a>
                     </li>
                 </ul>
             </div>

@@ -62,19 +62,17 @@ const Navbar = (props) => {
                         <li className={'md:px-0 px-4 md:py-0 py-1'}>
                             <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'}
                                className={"flex flex-row text-white text-base block p-2"}>
-                                <img className={'mr-1.5'} src={github_icon}/> Github
+                                <img className={'mr-1.5'} src={github_icon}/> Эх код
                             </a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
                             <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>Нэвтрэх</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <NavLink to="/partnersForm"
-                                     className={"text-white text-base block p-2" + (isOpen ? "" : " ")}>Бүртгүүлэх</NavLink>
+                            <NavLink to="/partnersForm" className={"text-white text-base block p-2"}>Бүртгүүлэх</NavLink>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-2'}>
-                            <a href={''} className={"text-white text-base border rounded-lg block px-6 py-2"}>Апп
-                                татах</a>
+                            <NavLink to="/downloadApp" className={"text-white text-base border rounded-lg block px-6 py-2"}>Апп татах</NavLink>
                         </li>
 
                         {/*language*/}

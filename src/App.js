@@ -15,6 +15,7 @@ import {WrappedComponentProps} from "react-intl";
 import {LocaleContext, LocaleProvider} from "./LocaleContext";
 import {languageMap} from "./translations";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import DownloadApp from "./components/DownloadApp/DownloadApp";
 
 export
 type
@@ -65,6 +66,9 @@ class App extends React.Component {
                                 </Route>
                                 <Route path="/partnersForm">
                                     <PartnersForm/>
+                                </Route>
+                                <Route path="/downloadApp">
+                                    <DownloadApp/>
                                 </Route>
                                 <Route path="/privacyPolicy">
                                     <PrivacyPolicy/>
