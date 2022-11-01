@@ -84,7 +84,7 @@ class Home extends React.Component<IntlProps> {
                                                 <div
                                                     className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл
                                                     (drag & drop)</div> :
-                                                <div className={'pdf_uploadzone flex'}>
+                                                <div className={'pdf_uploadzone flex justify-center'}>
                                                     <div
                                                         className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
                                                         <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
@@ -97,12 +97,12 @@ class Home extends React.Component<IntlProps> {
                                 )}
                             </Dropzone>
                         </div>
-                        <div className={'flex justify-center text-center text-[#8B7AA6] font-normal my-8 text-xl uppercase'}>
-                            <span>Дижитал өмч</span>
+                        <div className={'flex justify-center text-center text-[#8B7AA6] font-normal my-8 uppercase'}>
+                            <span className={'md:text-xl text-xs'}>Дижитал өмч</span>
                             <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
-                            <span>Дижитал диплом</span>
+                            <span className={'md:text-xl text-xs'}>Дижитал диплом</span>
                             <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
-                            <span>Дижитал үнэмлэх</span>
+                            <span className={'md:text-xl text-xs'}>Дижитал үнэмлэх</span>
                         </div>
                     </div>
                 </div>
