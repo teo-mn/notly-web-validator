@@ -62,7 +62,7 @@ const Navbar = (props) => {
                         <li className={'md:px-0 px-4 md:py-0 py-1'}>
                             <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'}
                                className={"flex flex-row text-white text-base block p-2"}>
-                                <img className={'mr-1.5'} src={github_icon}/> Эх код
+                                <img className={'mr-1.5'} src={github_icon} alt='github'/> Эх код
                             </a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>

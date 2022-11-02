@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import {formatDate} from './Datetime'
-import certified from "../assets/images/certifiedSymbol.svg";
 
 const capitalize = word => word.charAt(0).toUpperCase() + word.slice(1)
 
@@ -190,10 +189,10 @@ const Result = ({docType, result, error, customText}) => {
 
                     <IdentityObject
                         address={result.cert.issuer}
-                        issuer={result.issuer.name || 'Unkown'}
+                        issuer={result.issuer.name || 'Unknown'}
                         txid={result.cert.txid}
                         timestamp={result.cert.createdAt}
-                        chain={result.isTestnet ? 'COREX TESTNET' : 'COREX'}
+                        chain={result.isTestnet ? 'TEO | COREX ***ТЕСТ СҮЛЖЭЭ***' : 'TEO | COREX'}
                         testnet={result.isTestnet}
                         isRevoked={result.cert.isRevoked}
                         revokedAt={result.cert.revokedAt}
