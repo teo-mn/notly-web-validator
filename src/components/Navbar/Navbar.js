@@ -30,7 +30,7 @@ const Navbar = (props) => {
     // };
 
     return (
-        <nav className={"bg-primary-purple border-gray-200 py-10 drop-shadow-gray h-[74px]"} id={"home-navbar"}>
+        <nav className={"bg-primary-purple border-gray-200 py-8 drop-shadow-gray h-[98px]"} id={"home-navbar"}>
             <div className={"w-screen md:px-24 px-8 flex flex-wrap justify-between items-center"}>
 
                 <NavLink to={'/'} className={pathname === '/' ? 'invisible' : ''}>
