@@ -48,7 +48,7 @@ const IdentityObject = ({
                 <h3>Баталгаажуулсан мэдээлэл</h3>
                 <div className="bc-info-item mt-4">
                     <label>Баталгаажуулагч</label>
-                    <div>{issuer}</div>
+                    <div>{issuer.toUpperCase()}</div>
                 </div>
                 <div className="bc-info-item mt-2">
                     <label>Блокчэйн нэр</label>

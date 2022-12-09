@@ -22,3 +22,4 @@ Your app is ready to be deployed!
 ## Deploying
 
 To deploy the application, just use a web server or a CDN to serve the single JS file that was built in the previous step.
+# kye-web-validator
