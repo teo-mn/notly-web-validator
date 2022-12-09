@@ -29,14 +29,14 @@ class Home extends React.Component<IntlProps> {
         reader.readAsArrayBuffer(file);
     }
 
-    processPDF = (acceptedFiles) => {
-        if (!acceptedFiles.length) {
+    processPDF = (acceptedFiles, rejectedFiles) => {
+        if (!acceptedFiles.length && !rejectedFiles.length) {
             const preError = 'Not a valid PDF file';
             console.error(preError);
             this.setState({preError});
             return;
         }
-        if (acceptedFiles.length > 1) {
+        if (acceptedFiles.length > 1 || rejectedFiles.length > 1) {
             const preError = 'You can only validate one file at a time';
             console.error(preError);
             this.setState({preError});
@@ -44,8 +44,12 @@ class Home extends React.Component<IntlProps> {
         }
 
         this.setState({loading: true, preError: null});
+        if (acceptedFiles.length > 0) {
+            this.validateJS(acceptedFiles[0]);
+        } else {
+            this.validateJS(rejectedFiles[0]);
+        }
 
-        this.validateJS(acceptedFiles[0]);
     }
 
     cleanUp = () => {

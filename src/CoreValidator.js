@@ -59,7 +59,7 @@ export default function CoreValidator({
     parsePDF().catch(err => {
       console.error(err.message)
       setLoading(false)
-      setPreError(err.message)
+      setPreError({detail: err.message})
     })
   }, [blockchainServices, pdfArrayBuffer])
 
