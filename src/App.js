@@ -16,6 +16,7 @@ import {LocaleContext, LocaleProvider} from "./LocaleContext";
 import {languageMap} from "./translations";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import DownloadApp from "./components/DownloadApp/DownloadApp";
+import ReactGA from 'react-ga';
 
 export
 type
@@ -30,7 +31,10 @@ class App extends React.Component {
             locale: 'mn',
         }
     };
-
+    setGA = () => {
+        ReactGA.initialize('G-P7FSHC6BFJ');
+        ReactGA.pageview('Init page view');
+      };
     componentDidMount() {
         if (window.env.faviconIconUrl) {
             const favicon = document.getElementById("favicon");
@@ -41,6 +45,7 @@ class App extends React.Component {
             const {currentTarget: {localStorage: {locale}}} = e;
             this.setState({locale});
         });
+        this.setGA();
     };
 
     componentWillUnmount() {
