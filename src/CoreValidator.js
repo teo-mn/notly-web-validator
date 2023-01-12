@@ -6,6 +6,7 @@ import HelpIcon from './components/HelpIcon'
 
 import PDFViewer from './pdf/PDFViewer'
 import validate from './validate/validate'
+import { useTranslation } from 'react-i18next';
 
 PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.js`
 
@@ -25,6 +26,7 @@ export default function CoreValidator({
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
   const [pdf, setPdf] = useState(null)
+  const {t} = useTranslation();
 
   useEffect(() => {
     setLoading(true);
@@ -34,12 +36,12 @@ export default function CoreValidator({
           pdfArrayBuffer
       ).promise.catch(err => {
         console.error(err);
-        throw new Error('PDF файлыг задлахад алдаа гарлаа.')
+        throw new Error(t('error.extract.pdf'))
       })
 
       const pdfJSMetadata = await pdfJSDocument.getMetadata().catch(err => {
         console.error(err);
-        throw new Error('PDF файлын мэта датаг задлахад алдаа гарлаа.');
+        throw new Error(t('error.extract.metadata'));
       })
 
       setPdf(pdfJSDocument)
@@ -69,7 +71,7 @@ export default function CoreValidator({
           <div className="bc-column bc-col-left bc-text-center">
             {topDisplay}
             {loading ? (
-                <Loader text={`Баталгаажуулж байна. Түр хүлээнэ үү...`}/>
+                <Loader text={t('loader.text')}/>
             ) : (preError ?
                     <div className="bc-alert bc-alert-danger bc-text-center drop-shadow-gray">
                         {preError.detail}

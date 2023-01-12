@@ -4,30 +4,28 @@ import './navbar.scss';
 import github_icon from "../../assets/images/github_icon.svg";
 import notly_logo from "../../assets/images/notly_logo.svg";
 // import {LocaleContext} from "../../LocaleContext";
-
+import { useTranslation } from 'react-i18next';
 
 const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const {dashboardUrl} = window.env;
-
+    const [lng , uselng] = useState(localStorage.getItem('language') || 'mn')
+    const { t,i18n } = useTranslation();
+    
     const location = useLocation();
     const {pathname} = location;
-
+    
     useEffect(() => {
         setIsOpen(false);
     }, [location]);
 
-
-    // const useLocale = () => useContext(LocaleContext);
-    // const { locale, onChange } = useLocale();
-
-    // const toggleLang = () => {
-    //   if (locale === 'mn') {
-    //     onChange('en');
-    //     return;
-    //   }
-    //   onChange('mn');
-    // };
+    
+    const handleChangeLanguage = (lng) => {
+      i18n.changeLanguage(lng).then((r) => console.info(r));
+      uselng(lng);
+      localStorage.setItem('language', lng);
+    }
+    
 
     return (
         <nav className={"bg-primary-purple border-gray-200 py-8 drop-shadow-gray h-[98px]"} id={"home-navbar"}>
@@ -62,19 +60,22 @@ const Navbar = (props) => {
                         <li className={'md:px-0 px-4 md:py-0 py-1'}>
                             <a target={'_blank'} href={'https://github.com/corex-mn/certify-sc.git'}
                                className={"flex flex-row text-white text-base block p-2"}>
-                                <img className={'mr-1.5'} src={github_icon} alt='github'/> Эх код
+                                <img className={'mr-1.5'} src={github_icon} alt='github'/> {t('navbar.source.code')}
                             </a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>Нэвтрэх</a>
+                            <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>{t('navbar.login')}</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <NavLink to="/partnersForm" className={"text-white text-base block p-2"}>Бүртгүүлэх</NavLink>
+                            <NavLink to="/partnersForm" className={"text-white text-base block p-2"}>{t('navbar.signup')}</NavLink>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-2'}>
-                            <NavLink to="/downloadApp" className={"text-white text-base border rounded-lg block px-6 py-2"}>Апп татах</NavLink>
+                            <NavLink to="/downloadApp" className={"text-white text-base border rounded-lg block px-6 py-2"}>{t('navbar.download.app')}</NavLink>
                         </li>
-
+                        <li className="flex items-center ">
+                            {lng === 'en' && <button onClick={()=>handleChangeLanguage('mn')} className="text-white text-base  block px-2 py-2">mn</button>}
+                            {lng === 'mn' && <button onClick={()=>handleChangeLanguage('en')} className="text-white text-base   block px-2 py-2">en</button>}
+                        </li>
                         {/*language*/}
                         {/*<li className={'flex items-center w-10'}>*/}
                         {/*    <span className={'uppercase text-sm font-medium cursor-pointer'} onClick={() => { toggleLang(); }}>{ locale }</span>*/}

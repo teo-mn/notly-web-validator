@@ -5,12 +5,11 @@ import {hot} from 'react-hot-loader';
 import CoreValidator from '../../CoreValidator';
 import Modal from '../../components/Modal';
 
-import type {IntlProps} from '../../App';
-import {injectIntl} from "react-intl";
 import notlyLogo from "../../assets/images/notly_logo.svg";
 import {NavLink} from "react-router-dom";
+import { withTranslation } from 'react-i18next';
 
-class Home extends React.Component<IntlProps> {
+class Home extends React.Component {
     state = {
         loading: false,
         preError: null,
@@ -66,7 +65,7 @@ class Home extends React.Component<IntlProps> {
         this.cleanUp();
     }
 
-    translate = (id) => id ? this.props.intl.formatMessage({id}) : id;
+    translate = (id) => id ? this.props.t( id ) : id;
 
     render() {
         return (
@@ -86,15 +85,15 @@ class Home extends React.Component<IntlProps> {
                                         {
                                             isDragActive ?
                                                 <div
-                                                    className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>Файл
+                                                    className='pdf_dropzone bg-white text-gray-500 sm:text-base text-xs ml-5 sm:p-4 p-2 lg:w-[786px] sm:w-[474px] w-[278px] rounded'>{this.translate('home.file')}
                                                     (drag & drop)</div> :
                                                 <div className={'pdf_uploadzone flex justify-center'}>
                                                     <div
                                                         className={'sm:p-4 p-2 bg-white rounded-l-lg lg:w-[600px] sm:w-72 w-36'}>
-                                                        <span className={'sm:text-base text-xs text-gray-500 ml-1'}>Файл оруулах хэсэг</span>
+                                                        <span className={'sm:text-base text-xs text-gray-500 ml-1'}>{this.translate('home.upload.file')}</span>
                                                     </div>
                                                     <span
-                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>Шалгах</span>
+                                                        className={'text-white bg-primary-pink uppercase sm:text-base text-xs font-medium sm:py-4 pb-2 pt-3 sm:px-5 px-3 rounded-r-lg'}>{this.translate('home.verify')}</span>
                                                 </div>
                                         }
                                     </div>
@@ -102,11 +101,11 @@ class Home extends React.Component<IntlProps> {
                             </Dropzone>
                         </div>
                         <div className={'flex justify-center text-center text-[#8B7AA6] font-normal my-8 uppercase'}>
-                            <span className={'md:text-xl text-xs'}>Дижитал өмч</span>
+                            <span className={'md:text-xl text-xs'}>{this.translate('home.digital.asset')}</span>
                             <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
-                            <span className={'md:text-xl text-xs'}>Дижитал диплом</span>
+                            <span className={'md:text-xl text-xs'}>{this.translate('home.digital.diploma')}</span>
                             <div className={'h-1 w-1 mt-3 mx-6 bg-[#8B7AA6] rounded-full'}></div>
-                            <span className={'md:text-xl text-xs'}>Дижитал үнэмлэх</span>
+                            <span className={'md:text-xl text-xs'}>{this.translate('home.digital.id')}</span>
                         </div>
                     </div>
                 </div>
@@ -143,4 +142,4 @@ Home.defaultProps = {
     }
 };
 
-export default injectIntl(hot(module)(Home));
+export default withTranslation()(hot(module)(Home));

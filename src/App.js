@@ -10,16 +10,12 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import {BrowserRouter as Router, Switch, Route ,Redirect} from "react-router-dom";
 import PartnersForm from "./components/PartnersForm/PartnersForm";
-import {IntlProvider} from "react-intl";
-import {WrappedComponentProps} from "react-intl";
+
 import {LocaleContext, LocaleProvider} from "./LocaleContext";
-import {languageMap} from "./translations";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import DownloadApp from "./components/DownloadApp/DownloadApp";
 
-export
-type
-IntlProps = WrappedComponentProps;
+
 
 class App extends React.Component {
     static contextType = LocaleContext;
@@ -51,11 +47,10 @@ class App extends React.Component {
     }
 
     render() {
-        const {locale} = this.state;
+       
 
         return (
             <LocaleProvider>
-                <IntlProvider locale={locale} messages={languageMap[locale]} key={locale}>
                     <Router>
                         <Navbar/>
                     <div id="app" className={'h-screen grid grid-rows-custom-container bg-main-bg'}>
@@ -79,7 +74,6 @@ class App extends React.Component {
                         <Footer/>
                     </div>
                     </Router>
-                </IntlProvider>
             </LocaleProvider>
         );
     }

@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
+import { useTranslation } from 'react-i18next';
 
 const btnLabelStyle = {
     display: 'inline-block',
@@ -23,8 +24,9 @@ function calculatePage(page, dir, numPages) {
 }
 
 function Pagination({page, setPage, numPages}) {
+    const { t } = useTranslation();
+    
     if (numPages <= 1) return null
-
     return (
         <div>
             <button
@@ -37,7 +39,7 @@ function Pagination({page, setPage, numPages}) {
                 <FontAwesomeIcon icon={faChevronLeft} fixedWidth/>
             </button>
             <span style={btnLabelStyle} className={'py-1 px-3 sm:py-3 px-6'}>
-        хуудас {page}/{numPages}
+        {t('pagination.page')} {page}/{numPages}
       </span>
             <button
                 className={classNames('pages-btn p-1 sm:p-3', {
