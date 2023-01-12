@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import {formatDate} from './Datetime'
+import {useTranslation} from 'react-i18next'
 
 const capitalize = word => word.charAt(0).toUpperCase() + word.slice(1)
 
@@ -35,44 +36,47 @@ const IdentityObject = ({
                             expireDate,
                             state
                         }) => {
+
+    const {t} = useTranslation();
+
     return (
         <div className={''} style={{marginBottom: '1.5rem'}}>
             {isRevoked && <div className="bc-info-wrapper bg-white drop-shadow-yellow rounded-2xl p-6">
-                <h3>Хүчингүй болгосон мэдээлэл</h3>
+                <h3>{t('validate.revoked.information')}</h3>
                 <div className="bc-info-item mt-4">
-                    <label>Хүчингүй болгосон огноо</label>
+                    <label>{t('validate.revoked.date')}</label>
                     <div>{formatDate(revokedAt * 1000)}</div>
                 </div>
             </div>}
             <div className="bc-info-wrapper bg-white drop-shadow-yellow rounded-2xl p-6">
-                <h3>Баталгаажуулсан мэдээлэл</h3>
+                <h3>{t('validate.information')}</h3>
                 <div className="bc-info-item mt-4">
-                    <label>Баталгаажуулагч</label>
+                    <label>{t('validate.issuer')}</label>
                     <div>{issuer.toUpperCase()}</div>
                 </div>
                 <div className="bc-info-item mt-2">
-                    <label>Блокчэйн нэр</label>
+                    <label>{t('validate.blockchain')}</label>
                     <div>{capitalize(chain)}</div>
                 </div>
                 <div className="bc-info-item mt-2">
-                    <label>Баталгаажуулагч ID</label>
+                    <label>{t('validate.issuerId')}</label>
                     {/* eslint-disable-next-line react/jsx-no-target-blank */}
                     <a title={address} href={createLink(address, 'address', chain, testnet)} target="_blank"
                        rel="noopener noreferrer">{truncateAddress(address, 12)}</a>
                 </div>
                 <div className="bc-info-item mt-2">
-                    <label>Гүйлгээний ID</label>
+                    <label>{t('validate.transactionId')}</label>
                     {/* eslint-disable-next-line react/jsx-no-target-blank */}
                     <a title={txid} href={createLink(txid, 'transactions', chain, testnet)} target="_blank"
                        rel="noopener noreferrer">{truncateAddress(txid, 12)}</a>
                 </div>
                 <div className="bc-info-item mt-2">
-                    <label>Баталгаажсан огноо</label>
+                    <label>{t('validate.date')}</label>
                     <div>{formatDate(timestamp * 1000)}</div>
                 </div>
 
                 {expireDate !== '0' && <div className="bc-info-item mt-2">
-                    <label>{state === 'EXPIRED' ? 'Хугацаа дууссан огноо' : 'Хугацаа дуусах огноо'}</label>
+                    <label>{state === 'EXPIRED' ? `${t('validate.expired.date')}` : `${t('validate.expiration.date')}`}</label>
                     <div>{formatDate(expireDate * 1000)}</div>
                 </div>}
             </div>
@@ -81,18 +85,19 @@ const IdentityObject = ({
 };
 
 const DiplomaInfo = ({data}) => {
+    const {t} = useTranslation();
     const translationMap = {
-        'DEGREE_NUMBER': {'text': 'Дипломын дугаар', 'order': 1},
-        'PRIMARY_IDENTIFIER_NUMBER': {'text': 'Регистрийн дугаар', 'order': 2},
-        'INSTITUTION_ID': {'text': 'Байгууллагын ID', 'order': 3},
-        'INSTITUTION_NAME': {'text': 'Байгууллагын нэр', 'order': 4},
-        'EDUCATION_LEVEL_NAME': {'text': 'Боловсролын зэрэг', 'order': 5},
-        'EDUCATION_FIELD_CODE': {'text': 'Боловсролын салбарын код', 'order': 6},
-        'EDUCATION_FIELD_NAME': {'text': 'Боловсролын салбарын нэр', 'order': 7},
-        'TOTAL_GPA': {'text': 'Голч', 'order': 8},
-        'LAST_NAME': {'text': 'Овог', 'order': 9},
-        'FIRST_NAME': {'text': 'Нэр', 'order': 10},
-        'CONFER_YEAR_NAME': {'text': 'Хичээлийн жил', 'order': 11}
+        'DEGREE_NUMBER': {'text': t('validate.diploma.number'), 'order': 1},
+        'PRIMARY_IDENTIFIER_NUMBER': {'text': t('validate.registration.number'), 'order': 2},
+        'INSTITUTION_ID': {'text': t('validate.organization.id'), 'order': 3},
+        'INSTITUTION_NAME': {'text': t('validate.organization.name'), 'order': 4},
+        'EDUCATION_LEVEL_NAME': {'text': t('validate.education.degree'), 'order': 5},
+        'EDUCATION_FIELD_CODE': {'text': t('validate.educational.sector.code'), 'order': 6},
+        'EDUCATION_FIELD_NAME': {'text': t('validate.educational.sector.name'), 'order': 7},
+        'TOTAL_GPA': {'text': t('validate.gpa'), 'order': 8},
+        'LAST_NAME': {'text': t('validate.last.name'), 'order': 9},
+        'FIRST_NAME': {'text': t('validate.first.name'), 'order': 10},
+        'CONFER_YEAR_NAME': {'text': t('validate.school.year'), 'order': 11}
     }
     const items = Object.entries(data).sort(([key1, value1], [key2, value2]) => {
             const x1 = translationMap[key1];
@@ -106,7 +111,7 @@ const DiplomaInfo = ({data}) => {
     )
 
     return <div className="bc-info-wrapper bg-white drop-shadow-yellow rounded-2xl p-6">
-        <h3>Дипломын мэдээлэл</h3>
+        <h3>{t('validate.diploma.information')}</h3>
         {
             items.map(item => <>
                 <div className="bc-info-item mt-2">
@@ -118,13 +123,15 @@ const DiplomaInfo = ({data}) => {
     </div>
 }
 
-const ErrorMsg = ({customText, docType}) => (
+const ErrorMsg = ({customText, docType}) => {
+    const { t } = useTranslation();
+    return (
     <div className="drop-shadow-gray border border-gray-50 rounded-md p-5">
         <ul className={'text-left'}>
             <li className={'grid grid-cols-9'}>
                 <FontAwesomeIcon icon={faInfoCircle} className="text-primary mt-1"/>
                 <div className="col-span-8 mx-1">
-                    Та блокчэйн сүлжээнд баталгаажсан PDF файл оруулна уу.
+                    {t('validate.verified.file')}
                 </div>
 
             </li>
@@ -140,10 +147,11 @@ const ErrorMsg = ({customText, docType}) => (
                 <br/>
             </>
         )}
-    </div>
-)
+    </div>)
+}
 
 const Result = ({docType, result, error, customText}) => {
+    const {t} = useTranslation();
     return (
         <div>
             {error && (
@@ -162,19 +170,18 @@ const Result = ({docType, result, error, customText}) => {
                 <>
                     {result.state === 'ISSUED' && (
                         <div id="result_valid" className={classNames('col-span-3 text-center bg-green-600 text-white uppercase font-medium text-xl drop-shadow-yellow state py-9 rounded-2xl')}>
-                            Хүчинтэй
+                            {t('validate.issued')}
                         </div>
                     )}
                     {result.state === 'EXPIRED' && (
                         <div id="result_revoked_expired" className="bc-alert bc-alert-danger bc-text-center">
-                            <div className={'text-[#DB9390] text-xl font-medium'} style={{color: '#DB9390',}}>Хугацаа
-                                дууссан
+                            <div className={'text-[#DB9390] text-xl font-medium'} style={{color: '#DB9390',}}>{t('validate.expired')}
                             </div>
                         </div>
                     )}
                     {result.state === 'REVOKED' && (
                         <div id="result_revoked_expired" className="bc-alert bc-alert-danger bc-text-center">
-                            <div className={'text-[#DB9390] text-xl font-medium'} style={{color: '#DB9390',}}>Хүчингүй
+                            <div className={'text-[#DB9390] text-xl font-medium'} style={{color: '#DB9390',}}>{t('validate.revoked')}
                             </div>
                         </div>
                     )}
@@ -182,7 +189,7 @@ const Result = ({docType, result, error, customText}) => {
                     {result.state === 'APPROVE_PENDING' && (
                         <div className="bc-alert bc-alert-danger bc-text-center">
                             <div className={'text-[#DB9390] text-xl font-medium'}
-                                 style={{color: '#DB9390',}}>Боловсролын ерөнхий газраас хүлээгдэж байна
+                                 style={{color: '#DB9390',}}>{t('validate.approvePending')}
                             </div>
                         </div>
                     )}
