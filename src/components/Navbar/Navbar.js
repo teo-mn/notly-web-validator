@@ -67,7 +67,7 @@ const Navbar = (props) => {
                             <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>{t('navbar.login')}</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <a href={signupUrl} className={"text-white text-base block p-2"}>{t('navbar.signup')}</a>
+                            <a href={dashboardUrl + '/signup'} className={"text-white text-base block p-2"}>{t('navbar.signup')}</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-2'}>
                             <NavLink to="/downloadApp" className={"text-white text-base border rounded-lg block px-6 py-2"}>{t('navbar.download.app')}</NavLink>
