@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-    const {dashboardUrl} = window.env;
+    const {dashboardUrl , signupUrl} = window.env;
     const [lng , uselng] = useState(localStorage.getItem('language') || 'mn')
     const { t,i18n } = useTranslation();
     
@@ -67,7 +67,7 @@ const Navbar = (props) => {
                             <a href={dashboardUrl + '/login'} className={"text-white text-base block p-2"}>{t('navbar.login')}</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-1'}>
-                            <NavLink to="/partnersForm" className={"text-white text-base block p-2"}>{t('navbar.signup')}</NavLink>
+                            <a href={signupUrl} className={"text-white text-base block p-2"}>{t('navbar.signup')}</a>
                         </li>
                         <li className={'md:px-0 px-10 md:py-0 py-2'}>
                             <NavLink to="/downloadApp" className={"text-white text-base border rounded-lg block px-6 py-2"}>{t('navbar.download.app')}</NavLink>

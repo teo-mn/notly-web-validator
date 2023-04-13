@@ -1,7 +1,7 @@
 window.env = {
     faviconIconUrl: 'favicon.svg',
     dashboardUrl: 'https://notly.mn/dashboard',
-
+    signupUrl : 'https://notly.mn/admin/signup',
     REACT_APP_SERVICE_NAME: 'crx',
     REACT_APP_AVAILABLE_CONTRACT_ADDRESSES: ['0x5d305D8423c0f07bEaf15ba6a5264e0c88fC41B4',
         '0xcc546a88db1af7d250a2f20dee42ec436f99e075',
